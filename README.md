@@ -52,7 +52,7 @@ That just serves the `app` folder, so any other static file server works too. Th
 - `db/` has the SQL: the tables, the access rules, the audit triggers and the made up data. `00_local_shim.sql` and `04_local_users.sql` are only for local testing.
 - `tests/` has the tests that try to break it.
 - `app/` is the web page. It's plain HTML, CSS and JavaScript with no build step. `app/sql/` is a copy of `db/`, and a test fails if the two drift apart.
-- `scripts/` has two small helpers: one copies the SQL into the app, and one turns the bills from my first project into SQL.
+- `scripts/` has two small helpers: one copies the SQL into the app, and one turns the bills from my first project into SQL. The second only works if my first project's folder sits next to this one, so you don't need it. The finished file is already in `db/05_bills.sql`.
 
 ## How the tests work
 
