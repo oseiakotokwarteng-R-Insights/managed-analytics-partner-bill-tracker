@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Partner bill tracker: a demo of database level access control</title>
+  <meta name="description" content="A demo where each partner organization only sees its own watchlist and notes, and the database enforces it. Switch between people and try to break the rules.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <p class="brand">Partner bill tracker <span class="muted">a demo</span></p>
+    </div>
+  </header>
+
+  <aside class="notice" aria-label="About this demo">
+    <div class="wrap">
+      <p><strong>Everything here is made up</strong> except the bills, which are public. The organizations, people and notes are invented. Picking a person below stands in for logging in. The database runs inside this page so you can try it without an account, which means it shows how the rules behave, not a live server.</p>
+    </div>
+  </aside>
+
+  <main id="main" class="wrap">
+    <div id="loading" class="card" role="status" aria-live="polite">
+      <p id="loading-text">Starting up</p>
+    </div>
+
+    <div id="app" hidden>
+      <section class="card who" aria-labelledby="who-h">
+        <h1 id="who-h">Who are you?</h1>
+        <div class="who-row">
+          <label for="person">Pick a person</label>
+          <select id="person"></select>
+          <button type="button" id="reset" class="btn ghost">Reset the demo data</button>
+        </div>
+        <p id="me" class="me" aria-live="polite"></p>
+      </section>
+
+      <nav class="tabs" aria-label="Sections">
+        <button type="button" data-tab="watchlist">Watchlist</button>
+        <button type="button" data-tab="bills">Bills</button>
+        <button type="button" data-tab="notes">Notes</button>
+        <button type="button" data-tab="activity">Activity</button>
+        <button type="button" data-tab="staff">Counts</button>
+        <button type="button" data-tab="admin">Admin</button>
+        <button type="button" data-tab="attacks">Try to break it</button>
+      </nav>
+
+      <p id="message" class="message" role="status" aria-live="polite" hidden></p>
+      <section id="view" class="view" tabindex="-1"></section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>The rules are plain SQL, and a test suite tries to break them. Read the code and the security note in the project repository.</p>
+      <p>Powered by <a href="https://managedanalytics.co" target="_blank" rel="noopener">Managed Analytics</a>.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

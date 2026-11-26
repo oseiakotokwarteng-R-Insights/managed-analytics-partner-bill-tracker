@@ -1,0 +1,9 @@
+[
+  "00_local_shim.sql",
+  "01_schema.sql",
+  "02_security.sql",
+  "03_audit_and_guards.sql",
+  "04_local_users.sql",
+  "05_bills.sql",
+  "06_demo_data.sql"
+]
